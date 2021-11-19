@@ -202,7 +202,7 @@ public class SignUp2 implements ActionListener {
             if (ae.getSource() == back_Button) {
 
                 // SignUp.signup_Frame1.setVisible(true);
-                new SignUp().signup_Frame1.setVisible(true);
+                new SignUp().signup_Frame.setVisible(true);
                 signup_Frame2.dispose();
 
             } else if (ae.getSource() == next_Button) {

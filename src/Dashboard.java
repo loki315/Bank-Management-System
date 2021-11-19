@@ -18,7 +18,7 @@ public class Dashboard implements ActionListener {
 
     Label dashboard_Label, success_Label;
 
-    Button deposit_Button, withdraw_Button, changePin_Button, balance_Button, transfer_Button, statement_Button,
+    Button deposit_Button, withdraw_Button, changePin_Button, balance_Button, transfer_Button, profile_Button,
             back_Button, successOk_Button;
 
     Dashboard(int id) {
@@ -72,13 +72,13 @@ public class Dashboard implements ActionListener {
         dashboard_Frame.add(transfer_Button);
         transfer_Button.addActionListener(this);
 
-        statement_Button = new Button("MINI STATEMENT");
-        statement_Button.setFont(fontButton);
-        statement_Button.setBackground(mainColor);
-        statement_Button.setForeground(Color.white);
-        statement_Button.setBounds(430, 370, 270, 45);
-        dashboard_Frame.add(statement_Button);
-        statement_Button.addActionListener(this);
+        profile_Button = new Button("MY PROFILE");
+        profile_Button.setFont(fontButton);
+        profile_Button.setBackground(mainColor);
+        profile_Button.setForeground(Color.white);
+        profile_Button.setBounds(430, 370, 270, 45);
+        dashboard_Frame.add(profile_Button);
+        profile_Button.addActionListener(this);
 
         back_Button = new Button("BACK");
         back_Button.setFont(fontButton);
@@ -169,7 +169,10 @@ public class Dashboard implements ActionListener {
                 new Withdraw(id);
                 dashboard_Frame.dispose();
             }
-            else if(ae.getSource() == statement_Button){}
+            else if(ae.getSource() == profile_Button){
+                new Profile(id);
+                dashboard_Frame.dispose();
+            }
             else if(ae.getSource() == transfer_Button){
                 new Transfer(id);
                 dashboard_Frame.dispose();

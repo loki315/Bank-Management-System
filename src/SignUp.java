@@ -13,7 +13,7 @@ public class SignUp implements ActionListener {
     Color darkGreyColor = new Color(115, 115, 125);
     Color lightGreyColor = new Color(206, 206, 212);
 
-    Frame signup_Frame1;
+    Frame signup_Frame;
     Frame error_Frame;
 
     Label createAccount_Label, fname_Label, lname_Label, email_Label, accountNo_Label, reEnterAccountNo_Label,
@@ -26,81 +26,81 @@ public class SignUp implements ActionListener {
 
     SignUp() {
 
-        signup_Frame1 = new Frame("SIGN UP FORM");
+        signup_Frame = new Frame("SIGN UP FORM");
 
         createAccount_Label = new Label("CREATE ACCOUNT");
         createAccount_Label.setFont(fontHeading);
         createAccount_Label.setForeground(mainColor);
         createAccount_Label.setBounds(210, 60, 380, 40);
-        signup_Frame1.add(createAccount_Label);
+        signup_Frame.add(createAccount_Label);
 
         // width = length * 7.5;
         fname_Label = new Label("First Name : -");
         fname_Label.setFont(fontLabel);
         fname_Label.setBounds(138, 155, 105, 16);
-        signup_Frame1.add(fname_Label);
+        signup_Frame.add(fname_Label);
 
         lname_Label = new Label("Last Name : -");
         lname_Label.setFont(fontLabel);
         lname_Label.setBounds(138, 210, 100, 16);
-        signup_Frame1.add(lname_Label);
+        signup_Frame.add(lname_Label);
 
         email_Label = new Label("Email Id : -");
         email_Label.setFont(fontLabel);
         email_Label.setBounds(138, 265, 95, 16);
-        signup_Frame1.add(email_Label);
+        signup_Frame.add(email_Label);
 
         accountNo_Label = new Label("Account Number : -");
         accountNo_Label.setFont(fontLabel);
         accountNo_Label.setBounds(138, 320, 137, 16);
-        signup_Frame1.add(accountNo_Label);
+        signup_Frame.add(accountNo_Label);
 
         reEnterAccountNo_Label = new Label("Re-enter Account No : -");
         reEnterAccountNo_Label.setFont(fontLabel);
         reEnterAccountNo_Label.setBounds(138, 375, 175, 16);
-        signup_Frame1.add(reEnterAccountNo_Label);
+        signup_Frame.add(reEnterAccountNo_Label);
 
         mobile_Label = new Label("Mobile Number : -");
         mobile_Label.setFont(fontLabel);
         mobile_Label.setBounds(138, 430, 130, 16);
-        signup_Frame1.add(mobile_Label);
+        signup_Frame.add(mobile_Label);
 
         fname_TextField = new TextField(20);
         fname_TextField.setFont(fontInput);
         fname_TextField.setBounds(400, 155, 222, 30);
-        signup_Frame1.add(fname_TextField);
+        signup_Frame.add(fname_TextField);
 
         lname_TextField = new TextField(20);
         lname_TextField.setFont(fontInput);
         lname_TextField.setBounds(400, 210, 222, 30);
-        signup_Frame1.add(lname_TextField);
+        signup_Frame.add(lname_TextField);
 
         email_TextField = new TextField(30);
         email_TextField.setFont(fontInput);
         email_TextField.setBounds(400, 265, 222, 30);
-        signup_Frame1.add(email_TextField);
+        signup_Frame.add(email_TextField);
 
         accountNo_TextField = new TextField(15);
         accountNo_TextField.setFont(fontInput);
         accountNo_TextField.setBounds(400, 320, 222, 30);
-        signup_Frame1.add(accountNo_TextField);
+        signup_Frame.add(accountNo_TextField);
 
         reEnterAccountNo_TextField = new TextField(15);
         reEnterAccountNo_TextField.setFont(fontInput);
         reEnterAccountNo_TextField.setBounds(400, 375, 222, 30);
-        signup_Frame1.add(reEnterAccountNo_TextField);
+        signup_Frame.add(reEnterAccountNo_TextField);
 
         mobile_TextField = new TextField(10);
         mobile_TextField.setFont(fontInput);
         mobile_TextField.setBounds(400, 430, 222, 30);
-        signup_Frame1.add(mobile_TextField);
+        signup_Frame.add(mobile_TextField);
 
         back_Button = new Button("BACK");
         back_Button.setFont(fontButton);
         back_Button.setBackground(lightGreyColor);
         back_Button.setForeground(darkGreyColor);
         back_Button.setBounds(235, 500, 150, 43);
-        signup_Frame1.add(back_Button);
+        signup_Frame.add(back_Button);
         back_Button.addActionListener(this);
 
         next_Button = new Button("NEXT");
@@ -108,19 +108,19 @@ public class SignUp implements ActionListener {
         next_Button.setBackground(mainColor);
         next_Button.setForeground(Color.WHITE);
         next_Button.setBounds(415, 500, 150, 43);
-        signup_Frame1.add(next_Button);
+        signup_Frame.add(next_Button);
         next_Button.addActionListener(this);
 
-        signup_Frame1.addWindowListener(new WindowAdapter() {
+        signup_Frame.addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent e) {
-                signup_Frame1.dispose();
+                signup_Frame.dispose();
             }
         });
 
-        signup_Frame1.setSize(800, 600);
-        signup_Frame1.setLayout(null);
-        signup_Frame1.setVisible(true);
-        signup_Frame1.setLocation(360, 140);
+        signup_Frame.setSize(800, 600);
+        signup_Frame.setLayout(null);
+        signup_Frame.setVisible(true);
+        signup_Frame.setLocation(360, 140);
 
         // --------POPUP MISMATCH ---------
 
@@ -181,7 +181,7 @@ public class SignUp implements ActionListener {
             if (ae.getSource() == back_Button) {
 
                 new Home();
-                signup_Frame1.dispose();
+                signup_Frame.dispose();
 
             } else if (ae.getSource() == next_Button) {
 
@@ -211,7 +211,7 @@ public class SignUp implements ActionListener {
                     }
                     
                     new SignUp2(id);
-                    signup_Frame1.setVisible(false);
+                    signup_Frame.setVisible(false);
 
 
                 }
