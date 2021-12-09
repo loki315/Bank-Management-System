@@ -1,8 +1,27 @@
+create database projectjava;
 use projectjava;
 
-select * from userdata;
-select * from login;
-select * from bank;
+create table userdata(
+    id int not null auto_increment,
+    fname varchar(20),
+    lname varchar(20),
+    email varchar(20),
+    ac_no varchar(15),
+    mobile varchar(10),
+    primary key(id)
+);
+
+create table login(
+	id int,
+    username varchar(20),
+    pass varchar(20),
+    pin int
+);
+
+create table bank(
+	id int,
+    balance int
+);
 
 delete from userdata
 where id = 1;
@@ -14,29 +33,9 @@ where id = 1;
 -- to reset auto_increment variable 
 alter table userdata auto_increment=1;
 
-use testjava;
-
-create table testdata(
-    id int not null auto_increment,
-    fname varchar(20),
-    lname varchar(20),
-    email varchar(20),
-    ac_no varchar(15),
-    mobile varchar(10),
-    primary key(id)
-);
-
-create table testlogin(
-	id int,
-    username varchar(20),
-    pass varchar(20),
-    pin int
-);
-
-create table testbank(
-	id int,
-    balance int
-);
+select * from userdata;
+select * from login;
+select * from bank;
 
 -- to insert into login table
 insert into testlogin(id, username, pass, pin) values(1, 'ruchit', 'password', 1212);
@@ -45,18 +44,7 @@ values(1, 'ruchit', 'bhandari', 'ruchit@gmail.com', 1234554321, 9879879870);
 insert into testbank(id, balance) values(1, 1000);
 
 -- to update value in database
-update testlogin set pin = 2424 where id = 1;
-
-select * from testdata;
-select * from testlogin;
-select * from testbank;
-
-delete from testdata
-where id = 1;
-delete from testbank
-where id = 1;
-delete from testlogin
-where id = 1;
+update login set pin = 2424 where id = 1;
 
 -- to delete table
 drop table test;
