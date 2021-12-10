@@ -214,7 +214,7 @@ public class SignUp2 implements ActionListener {
                     }else if(!validatePassword(password) || !validatePassword(password2)){
                         error_Label.setText("Enter valid password");
                     }else if(!validatePin(pin) || !validatePin(pin2)){
-                        error_Label.setText("Enter valid pin");
+                        error_Label.setText("Enter valid 4-digit pin");
                     }else{
                         error_Label.setText("Fill all fields correctly");
                     }

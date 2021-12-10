@@ -106,7 +106,7 @@ public class Withdraw implements ActionListener {
                 // Frame for balance
                 success_Frame = new Frame("Error");
                 if(!validatePin(enteredPin)){
-                    success_Label = new Label("Enter valid pin");
+                    success_Label = new Label("Enter valid 4-digit pin");
                 }else if(!validateAmount(amount)){
                     success_Label = new Label("Enter amount less than 99,99,999");
                 }else{

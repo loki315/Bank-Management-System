@@ -197,7 +197,7 @@ public class SignUp implements ActionListener {
                     } else if (!validateEmail(email)) {
                         mismatch_Label.setText("Enter valid email");
                     } else if (!validateAccountNo(re_ac_no) || !validateAccountNo(ac_no)) {
-                        mismatch_Label.setText("Enter valid Account number");
+                        mismatch_Label.setText("Enter 8-digit valid Account number");
                     } else {
                         mismatch_Label.setText("Fill all fields correctly");
                     }
@@ -283,7 +283,7 @@ public class SignUp implements ActionListener {
         if (ac_no == null || ac_no.isEmpty()) {
             return false;
         }
-        if (ac_no.matches("[0-9]\\d{14}")) {
+        if (ac_no.matches("[0-9]\\d{7}")) {
             return true;
         } else {
             return false;

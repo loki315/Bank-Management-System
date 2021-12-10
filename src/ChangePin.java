@@ -117,9 +117,9 @@ public class ChangePin implements ActionListener {
                 ok_Button = new Button("OK");
 
                 if(!validatePin(oldPin)){
-                    error_Label = new Label("Enter valid old pin");
+                    error_Label = new Label("Enter valid 4-digit old pin");
                 }else if(!validatePin(newPin) || !validatePin(renew)){
-                    error_Label = new Label("Enter valid new pin");
+                    error_Label = new Label("Enter valid 4-digit new pin");
                 }else if(!newPin.equals(renew)){
                     error_Label = new Label("Re-enter same pin");
                 }else{
