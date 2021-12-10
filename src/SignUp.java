@@ -162,7 +162,7 @@ public class SignUp implements ActionListener {
 
     public static void main(String[] args) {
 
-    new SignUp();
+        new SignUp();
 
     }
 
@@ -185,9 +185,22 @@ public class SignUp implements ActionListener {
 
             } else if (ae.getSource() == next_Button) {
 
-                if (fname.isEmpty() || lname.isEmpty() || email.isEmpty() || ac_no.isEmpty() || re_ac_no.isEmpty()
-                        || mobile.isEmpty()) {
-                    mismatch_Label.setText("Fill all fields correctly");
+                if (!validateName(fname) || !validateName(lname) || !validateEmail(email)
+                        || !validateAccountNo(ac_no) || !validateAccountNo(re_ac_no) || !validateMobile(mobile)) {
+
+                    if (!validateName(fname)) {
+                        mismatch_Label.setText("Enter valid first name");
+                    } else if (!validateMobile(mobile)) {
+                        mismatch_Label.setText("Enter valid Mobile number");
+                    } else if (!validateName(lname)) {
+                        mismatch_Label.setText("Enter valid last name");
+                    } else if (!validateEmail(email)) {
+                        mismatch_Label.setText("Enter valid email");
+                    } else if (!validateAccountNo(re_ac_no) || !validateAccountNo(ac_no)) {
+                        mismatch_Label.setText("Enter valid Account number");
+                    } else {
+                        mismatch_Label.setText("Fill all fields correctly");
+                    }
                     error_Frame.setVisible(true);
 
                 } else if (!ac_no.equals(re_ac_no)) {
@@ -205,14 +218,13 @@ public class SignUp implements ActionListener {
                     String query2 = "select * from userdata where ac_no = '" + ac_no + "';";
                     rs = c1.s.executeQuery(query2);
 
-                    int id=0;
-                    while(rs.next()){
+                    int id = 0;
+                    while (rs.next()) {
                         id = rs.getInt("id");
                     }
-                    
+
                     new SignUp2(id);
                     signup_Frame.setVisible(false);
-
 
                 }
 
@@ -222,6 +234,93 @@ public class SignUp implements ActionListener {
         }
 
     }
+
+    public static boolean validateEmail(String email) {
+        if (email == null || email.isEmpty()) {
+            return false;
+        }
+        if (email.matches("^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$")) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public static boolean validateMobile(String mobile) {
+        if (mobile == null || mobile.isEmpty()) {
+            return false;
+        }
+        if (mobile.matches("[6-9]\\d{9}")) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public static boolean validatePin(String pin) {
+        if (pin == null || pin.isEmpty()) {
+            return false;
+        }
+        if (pin.matches("[0-9]\\d{3}")) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public static boolean validateAmount(String amount) {
+        if (amount == null || amount.isEmpty()) {
+            return false;
+        }
+        if (amount.matches("[0-9]{0,7}")) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public static boolean validateAccountNo(String ac_no) {
+        if (ac_no == null || ac_no.isEmpty()) {
+            return false;
+        }
+        if (ac_no.matches("[0-9]\\d{14}")) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public static boolean validateName(String name) {
+        if (name == null || name.isEmpty()) {
+            return false;
+        }
+        if (name.matches("[a-zA-Z]{3,20}")) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public static boolean validateUserName(String name) {
+        if (name == null || name.isEmpty()) {
+            return false;
+        }
+        if (name.matches("[a-zA-Z0-9_]{3,20}")) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public static boolean validatePassword(String password) {
+        if (password == null || password.isEmpty()) {
+            return false;
+        }
+        if (password.matches("[a-zA-Z0-9@]{3,20}")) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }
-
-
